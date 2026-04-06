@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARandomBird</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #0a0a0a;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 18px 30px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(10px);
+        z-index: 10;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    nav a {
+        color: #ddd;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: 0.25s;
+    }
+
+    nav a:hover {
+        color: white;
+    }
+
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 120px 20px 60px;
+        text-align: center;
+    }
+
+    .icon {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 25px;
+        border: 3px solid rgba(255,255,255,0.08);
+        box-shadow: 0 0 30px rgba(255,255,255,0.08);
+        background: #111;
+    }
+
+    .hero h1 {
+        font-size: 3.2rem;
+        margin-bottom: 12px;
+        letter-spacing: 1px;
+    }
+
+    .hero p {
+        color: #bdbdbd;
+        font-size: 1.1rem;
+        max-width: 700px;
+        line-height: 1.7;
+    }
+
+    section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 80px 20px;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .box {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.05);
+        border-radius: 22px;
+        padding: 30px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .box p {
+        color: #d3d3d3;
+        line-height: 1.8;
+        font-size: 1.05rem;
+    }
+
+    .ports {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .port-card {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.05);
+        border-radius: 20px;
+        padding: 24px;
+        transition: 0.25s;
+        backdrop-filter: blur(8px);
+    }
+
+    .port-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(255,255,255,0.12);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .port-card h3 {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+
+    .port-card p {
+        color: #bdbdbd;
+        line-height: 1.7;
+        margin-bottom: 16px;
+    }
+
+    .port-card a {
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.08);
+        transition: 0.25s;
+    }
+
+    .port-card a:hover {
+        background: rgba(255,255,255,0.16);
+    }
+
+    @media (max-width: 700px) {
+        .hero h1 {
+            font-size: 2.3rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+
+        .icon {
+            width: 110px;
+            height: 110px;
+        }
+
+        nav {
+            gap: 18px;
+            padding: 15px 20px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<canvas id="dust"></canvas>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#webports">Web Ports</a>
+</nav>
+
+<div class="hero">
+    <img src="your-icon.png" alt="ARandomBird Icon" class="icon">
+    <h1>ARandomBird</h1>
+    <p>Random things. Cool web stuff. Weird projects. Internet bird behavior.</p>
+</div>
+
+<section id="about">
+    <h2>About</h2>
+    <div class="box">
+        <p>
+            Hi, I’m ARandomBird. I make random cool stuff, web things, projects, and whatever else I feel like launching into the internet.
+            This site is where I put some of the things I’ve made and worked on.
+        </p>
+    </div>
+</section>
+
+<section id="webports">
+    <h2>Web Ports</h2>
+    <div class="ports">
+        <div class="port-card">
+            <h3>Project One</h3>
+            <p>A web port or browser project can go here.</p>
+            <a href="#">Open</a>
+        </div>
+
+        <div class="port-card">
+            <h3>Project Two</h3>
+            <p>Another game, website, or cool browser thing.</p>
+            <a href="#">Open</a>
+        </div>
+
+        <div class="port-card">
+            <h3>Project Three</h3>
+            <p>Put whatever you want here later.</p>
+            <a href="#">Open</a>
+        </div>
+    </div>
+</section>
+
+<script>
+const canvas = document.getElementById("dust");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let mouse = {
+    x: null,
+    y: null,
+    radius: 100
+};
+
+window.addEventListener("mousemove", (e) => {
+    mouse.x = e.x;
+    mouse.y = e.y;
+});
+
+window.addEventListener("mouseout", () => {
+    mouse.x = null;
+    mouse.y = null;
+});
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initParticles();
+});
+
+class Particle {
+    constructor() {
+        this.reset();
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+    }
+
+    reset() {
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = Math.random() * 0.6 + 0.2;
+        this.speedY = (Math.random() - 0.5) * 0.2;
+        this.opacity = Math.random() * 0.35 + 0.08;
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (mouse.x !== null && mouse.y !== null) {
+            let dx = this.x - mouse.x;
+            let dy = this.y - mouse.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < mouse.radius) {
+                let force = (mouse.radius - distance) / mouse.radius;
+                let angle = Math.atan2(dy, dx);
+                this.x += Math.cos(angle) * force * 5;
+                this.y += Math.sin(angle) * force * 5;
+            }
+        }
+
+        if (this.x > canvas.width + 20) {
+            this.x = -20;
+            this.y = Math.random() * canvas.height;
+        }
+
+        if (this.y < -20) this.y = canvas.height + 20;
+        if (this.y > canvas.height + 20) this.y = -20;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(255,255,255,${this.opacity})`;
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+let particles = [];
+
+function initParticles() {
+    particles = [];
+    let count = Math.floor((canvas.width * canvas.height) / 9000);
+    for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let particle of particles) {
+        particle.update();
+        particle.draw();
+    }
+
+    requestAnimationFrame(animate);
+}
+
+initParticles();
+animate();
+</script>
+
+</body>
+</html>
